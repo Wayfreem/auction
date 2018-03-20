@@ -1,26 +1,33 @@
-<!--<div class="container">
-  <div class="row">
-    <div class="col-md-9">
-      <img src="http://placehold.it/800x300" alt="" class="slide-image">
-      <h4>{{productTitle}}</h4>
-      <div>
-        <button type="button" class="btn btn-primary" (click)="goBack()">返回</button>
-      </div>
+<div class="thumbnail">
+  <img src="http://placehold.it/800x300" alt="" class="slide-image">
+  <div>
+    <h4 class="pull-right">{{product.price}}元</h4>
+    <h4>{{product.title}}</h4>
+    <p>{{product.desc}}</p>
+  </div>
+
+  <div>
+      <p class="pull-right">{{comments.length}}条评论</p>
+      <p>
+        <app-stars [rating]="product.rating"></app-stars>
+      </p>
+  </div>
+</div>
+
+<div class="well">
+  <div class="row" *ngFor="let comment of comments">
+    <hr>
+    <div class="col-md-12">
+      <app-stars [rating]="comment.rating"></app-stars>
+      <span>{{comment.user}}</span>
+      <span class="pull-right">{{comment.timestamp}}</span>
+      <span>{{comment.content}}</span>
     </div>
   </div>
-</div>-->
+</div>
 
-
-<div class="thumbnail">
-  <div class="row">
-    <div class="col-md-9">
-      <img src="http://placehold.it/800x300" alt="" class="slide-image">
-      <h4>{{product.price}}元</h4>
-      <h4>{{product.title}}</h4>
-      <p>{{product.desc}}</p>
-      <div>
-        <button type="button" class="btn btn-primary" (click)="goBack()">返回</button>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-md-9">
+    <button type="button" class="btn btn-primary" (click)="goBack()">返回</button>
   </div>
 </div>
