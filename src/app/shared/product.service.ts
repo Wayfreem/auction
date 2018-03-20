@@ -22,11 +22,10 @@ export class ProductService {
   ];
 
   constructor() {
-
   }
 
   getProducts(){
-    return this.getProducts();
+    return this.products;
   }
 
   getProduct(id: number) :Product {
