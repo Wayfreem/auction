@@ -21,8 +21,7 @@ export class ProductService {
     new Comment( 6, 4, "2018-03-09 20:20:20",  "Black", 1, "这个东西一般般啦"),
   ];
 
-  constructor() {
-  }
+  constructor() {}
 
   getProducts(){
     return this.products;
