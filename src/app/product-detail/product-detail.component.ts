@@ -13,6 +13,11 @@ export class ProductDetailComponent implements OnInit {
   product: Product;
   comments: Comment[];
 
+  newRating: number = 5;
+  newComment: string = "";
+
+  isCommentHidden:boolean = true;
+
   constructor(private routeInfo: ActivatedRoute,
               private location: Location,
               private productService: ProductService) { }
@@ -26,5 +31,16 @@ export class ProductDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  addComment(){
+    let comment = new Comment(0, this.product.id, new Date().toISOString(), "someone", this.newRating, this.newComment);
+    this.comments.unshift(comment);
+
+    let sum = this.comments.reduce( (sum, comment) => sum + comment.rating, 0);
+    this.product.rating = sum / this.comments.length;
+
+    this.newComment = "";
+    this.newRating = 5;
   }
 }
