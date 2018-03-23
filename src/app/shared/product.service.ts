@@ -35,6 +35,10 @@ export class ProductService {
     return this.comments.filter( (comment: Comment) => comment.productId == id );
   }
 
+  getAllCategories(){
+    return ["电子产品", "硬件设备", "图书"];
+  }
+
 }
 
 export class Product {
