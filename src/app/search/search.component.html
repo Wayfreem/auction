@@ -2,7 +2,7 @@
   <div class="form-group" [class.has-error]="formModel.hasError('minlength', 'title')" >
     <label for="productTitle">商品名称</label>
     <input formControlName="title" type="text" id="productTitle" placeholder="商品名称" class="form-control"/>
-    <span class="help-block" [class.has-error]="!formModel.hasError('minlength', 'title')">
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength', 'title')">
       请输入至少三个字符
     </span>
   </div>
@@ -10,7 +10,7 @@
   <div class="form-group"  [class.has-error]="formModel.hasError('positiveNumber', 'price')">
     <label for="productPrice">商品价格</label>
     <input formControlName="price" type="number" id="productPrice" placeholder="商品价格" class="form-control"/>
-    <span class="help-block" [class.has-error]="!formModel.hasError('minlength', 'price')">
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength', 'price')">
       请输入正数
     </span>
   </div>
